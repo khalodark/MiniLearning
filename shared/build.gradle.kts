@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("org.jetbrains.kotlin.native.cocoapods")
 }
 
 kotlin {
@@ -17,7 +18,19 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    
+
+    applyDefaultHierarchyTemplate()
+
+    cocoapods {
+        version = "1.0.0"
+        summary = "Shared module for iOS"
+        homepage = "https://github.com/your-repo"
+        ios.deploymentTarget = "13.0"
+        framework {
+            baseName = "shared"
+        }
+    }
+
     jvm()
     
     @OptIn(ExperimentalWasmDsl::class)
