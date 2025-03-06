@@ -59,19 +59,27 @@ kotlin {
             implementation(libs.ktor.client.serialization)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material) // ✅ Add Material support
+            implementation(libs.compose.ui) // ✅ Required for UI components
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.cio) // Android
             implementation(libs.ktor.client.android)
+            implementation(libs.androidx.activity.compose)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin) // iOS
+            implementation(libs.compose.ui)
         }
         jvmMain.dependencies {
             implementation(libs.ktor.client.cio) // Android
+            implementation(libs.compose.desktop)
         }
         wasmJsMain.dependencies {
             implementation(libs.ktor.client.js)
+            implementation(libs.compose.ui)
         }
     }
 }
