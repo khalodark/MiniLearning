@@ -1,11 +1,11 @@
 [versions]
-agp = "8.8.1"
+agp = "8.9.0"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidx-activityCompose = "1.10.0"
+androidx-activityCompose = "1.10.1"
 androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.2.0"
+androidx-constraintlayout = "2.2.1"
 androidx-core-ktx = "1.15.0"
 androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.4"
@@ -17,9 +17,10 @@ kotlin = "2.1.0"
 kotlinx-coroutines = "1.10.1"
 ktor = "3.1.0"
 kotlin-serialization = "1.8.0"
-ktorSerializationKotlinxJson = "3.1.0"
+ktorClientAndroid = "2.3.11"
 logback = "1.5.16"
 ktor-libs = "3.1.0"
+webCore = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,16 +37,20 @@ androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", nam
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref="kotlin-serialization" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor-libs" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-libs" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-libs" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor-libs" }
 ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor-libs" }
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor-libs" }
-ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor-libs" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "webCore" }
+web-core = { module = "org.jetbrains.compose.web:web-core", version.ref = "webCore" }
+web-ui = { module = "org.jetbrains.compose.web:web-ui", version.ref = "webCore" }
 #ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
 
 [plugins]

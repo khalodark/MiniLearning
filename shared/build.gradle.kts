@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     id("org.jetbrains.kotlin.native.cocoapods")
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 kotlin {
@@ -61,6 +62,7 @@ kotlin {
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.cio) // Android
+            implementation(libs.ktor.client.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin) // iOS
@@ -69,7 +71,7 @@ kotlin {
             implementation(libs.ktor.client.cio) // Android
         }
         wasmJsMain.dependencies {
-            implementation(libs.ktor.client.js) // ✅ دعم WebAssembly (WASM)
+            implementation(libs.ktor.client.js)
         }
     }
 }
