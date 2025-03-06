@@ -13,11 +13,14 @@ import kotlinx.serialization.json.Json
 import org.khalodark.miniudemy.SERVER_PORT
 import org.khalodark.miniudemy.data.LoginRequest
 import org.khalodark.miniudemy.data.LoginResponse
+import org.khalodark.miniudemy.network.provideHttpClient
 
 /**
  * Simple class for requesting login to local host using post
  */
-class AuthRepository(private val client: HttpClient) {
+class AuthRepository {
+
+    private val client: HttpClient = provideHttpClient()
 
     fun login(email: String, password: String): Flow<Result<LoginResponse>> = flow {
         try {
