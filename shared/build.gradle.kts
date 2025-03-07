@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.composeCompiler)
     id("org.jetbrains.kotlin.native.cocoapods")
     kotlin("plugin.serialization") version "1.9.0"
 }
@@ -50,12 +51,11 @@ kotlin {
             }
         }
     }
-    
+
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
-            implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.core)
+            implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.serialization)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
@@ -64,11 +64,18 @@ kotlin {
             implementation(libs.compose.material) // ✅ Add Material support
             implementation(libs.compose.ui) // ✅ Required for UI components
         }
+
         androidMain.dependencies {
-            implementation(libs.ktor.client.cio) // Android
+//            implementation(libs.ktor.client.core) // Android
+//            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.android.okHttp.engine)
             implementation(libs.ktor.client.android)
+//            implementation(libs.ktor.client.content.negotiation)
+//            implementation(libs.ktor.client.logging)
             implementation(libs.androidx.activity.compose)
+//            implementation(libs.ktor.client.timeout)
         }
+
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin) // iOS
             implementation(libs.compose.ui)

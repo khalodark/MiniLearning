@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.0"
+agp = "8.8.0-alpha05"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -11,7 +11,7 @@ androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
-compose-multiplatform = "1.7.0"
+compose-multiplatform = "1.7.3"
 junit = "4.13.2"
 kotlin = "2.1.0"
 kotlinx-coroutines = "1.10.1"
@@ -43,8 +43,12 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-libs" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor-libs" }
 ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor-libs" }
+ktor-client-plugins = { module = "io.ktor:ktor-client-plugins", version.ref = "ktor-libs" }
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor-libs" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor-libs" }
+ktor-client-timeout = {module = "io.ktor:ktor-client-timeout", version.ref = "ktor-libs" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor-libs" }
+ktor-client-android-okHttp-engine ={module ="io.ktor:ktor-client-okhttp", version.ref = "ktor-libs"}
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
