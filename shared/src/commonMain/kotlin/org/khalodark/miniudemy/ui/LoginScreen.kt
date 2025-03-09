@@ -46,6 +46,7 @@ fun LoginScreen(viewModel: AuthViewModel) {
         Button(
             onClick = { viewModel.login(email, password) },
             modifier = Modifier.fillMaxWidth()
+                .height(100.dp)
         ) {
             Text("Login")
         }

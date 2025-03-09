@@ -11,11 +11,26 @@ application {
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
 }
 
+repositories{
+    mavenCentral()
+    google()
+}
+
 dependencies {
-    implementation(projects.shared)
-    implementation(libs.logback)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
-//    testImplementation(libs.ktor.server.tests)
-    testImplementation(libs.kotlin.test.junit)
+    implementation(libs.ktor.server.contentNegotiation) // JSON Content Negotiation
+    implementation(libs.ktor.serialization.kotlinx.json) // Kotlinx Serialization Support
+    implementation(libs.ktor.server.logging)                // Logging
+    testImplementation(libs.ktor.server.tests)  // Ktor Test Support
+    testImplementation(libs.kotlin.test.junit)  // JUnit Support
+    // ✅ Add SLF4J API and Logback implementation
+    implementation(libs.logback)
+    // Include shared module but exclude AndroidX dependencies
+    implementation(project(":shared")) {
+        exclude(group = "androidx.lifecycle")
+        exclude(group = "androidx.collection")
+        exclude(group = "androidx.annotation")
+        exclude(group = "androidx.arch.core")
+    }
 }
